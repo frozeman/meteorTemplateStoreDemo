@@ -1,0 +1,25 @@
+<head>
+    <title>meteorTemplateStoreTest</title>
+</head>
+
+<body>
+    {{> main}}
+</body>
+
+<template name="main">
+    <h1>Just a template store demonstration</h1>
+
+
+    {{#each items}}
+        {{> itemTemplate}}
+    {{/each}}
+</template>
+
+
+
+<template name="itemTemplate">
+    <div class="{{red}}">
+        {{title}}
+        <button>Switch color</button>
+    </div>
+</template>
