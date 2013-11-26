@@ -21,23 +21,23 @@ if (Meteor.isClient) {
 
 
     Template.itemTemplate.red = function(){
-        return (Session.get('itemTemplate->changeColor')) ? 'red' : '';
-        // return (TemplateStore.get(this,'itemTemplate->changeColor')) ? 'red' : '';
+        // return (Session.get('itemTemplate->changeColor')) ? 'red' : '';
+        return (TemplateStore.get(this,'itemTemplate->changeColor')) ? 'red' : '';
     }
 
 
     Template.itemTemplate.events({
         'click button' : function (e, template) {
             // change the color
-            if(Session.get('itemTemplate->changeColor') === true)
-                Session.set('itemTemplate->changeColor', false);
-            else
-                Session.set('itemTemplate->changeColor', true);
-
-            // if(TemplateStore.get(template, 'itemTemplate->changeColor') === true)
-            //     TemplateStore.set(template, 'itemTemplate->changeColor', false);
+            // if(Session.get('itemTemplate->changeColor') === true)
+            //     Session.set('itemTemplate->changeColor', false);
             // else
-            //     TemplateStore.set(template, 'itemTemplate->changeColor', true);
+            //     Session.set('itemTemplate->changeColor', true);
+
+            if(TemplateStore.get(template, 'itemTemplate->changeColor') === true)
+                TemplateStore.set(template, 'itemTemplate->changeColor', false);
+            else
+                TemplateStore.set(template, 'itemTemplate->changeColor', true);
         }
     });
 
